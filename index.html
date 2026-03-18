@@ -1664,13 +1664,32 @@ function toggleMenu() {
 
 // Form submit
 function handleSubmit() {
-  const btn = document.querySelector('.form-submit');
-  btn.textContent = '✓ Message Sent! We\'ll reach out within 24 hours.';
-  btn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
-  setTimeout(() => {
-    btn.textContent = 'Send Message ✦';
-    btn.style.background = '';
-  }, 4000);
+  const name = document.querySelector('input[placeholder="John Doe"]').value;
+  const email = document.querySelector('input[type="email"]').value;
+  const phone = document.querySelector('input[type="tel"]').value;
+  const company = document.querySelector('input[placeholder="Your Company"]').value;
+  const service = document.querySelector('select').value;
+  const message = document.querySelector('textarea').value;
+
+  if (!name || !email || !message) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const fullMessage =
+    "New Project Inquiry:%0A%0A" +
+    "Name: " + name + "%0A" +
+    "Email: " + email + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Company: " + company + "%0A" +
+    "Service: " + service + "%0A" +
+    "Message: " + message;
+
+  const phoneNumber = "919064902311";
+
+  const url = "https://wa.me/" + phoneNumber + "?text=" + fullMessage;
+
+  window.open(url, "_blank");
 }
 
 // Smooth scroll for anchors
