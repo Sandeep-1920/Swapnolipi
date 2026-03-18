@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Swapnolipi Technologies Pvt. Ltd. — Empowering Businesses with Technology & Digital Marketing. Web, App, CRM & Digital Marketing under one roof.">
+<meta name="keywords" content="Digital Marketing Company in India, Custom CRM Development, Web App Development Services">
+<title>Swapnolipi Technologies Pvt. Ltd. | Build Smart. Market Smarter.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold-1: #D4AF37;
+  --gold-2: #F2C94C;
+  --gold-3: #FFE08A;
+  --black: #000000;
+  --black-2: #0A0A0A;
+  --black-3: #111111;
+  --black-4: #1A1A1A;
+  --white: #FFFFFF;
+  --gray-1: #D9D9D9;
+  --gray-2: #999999;
+  --gray-3: #444444;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--gold-2);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid var(--gold-1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.15s ease;
+  mix-blend-mode: difference;
+}
+
+/* Noise Texture Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  transition: padding 0.3s ease;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+.logo-s {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--black);
+  box-shadow: 0 0 20px rgba(212,175,55,0.4);
+  letter-spacing: 0;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.logo-text span:first-child {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 0.95rem;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+}
+.logo-text span:last-child {
+  font-size: 0.6rem;
+  color: var(--gray-2);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray-1);
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold-2);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold-2); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: var(--black) !important;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 700 !important;
+  transition: box-shadow 0.3s ease, transform 0.2s ease !important;
+}
+.nav-cta:hover {
+  box-shadow: 0 0 24px rgba(242,201,76,0.5);
+  transform: translateY(-1px);
+}
+.nav-cta::after { display: none !important; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 4rem 4rem;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 50%, rgba(212,175,55,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(242,201,76,0.05) 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 2rem;
+  background: rgba(212,175,55,0.05);
+  animation: fadeUp 0.8s ease forwards;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold-2);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero-title .gold {
+  background: linear-gradient(90deg, var(--gold-1) 0%, var(--gold-3) 50%, var(--gold-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--gray-2);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero-sub strong { color: var(--gray-1); font-weight: 500; }
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: var(--black);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(212,175,55,0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212,175,55,0.45);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 1rem 2rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: var(--gold-1);
+  color: var(--gold-2);
+  background: rgba(212,175,55,0.05);
+}
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.stat-item { display: flex; flex-direction: column; gap: 0.3rem; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat-label { font-size: 0.75rem; color: var(--gray-2); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-head); font-weight: 600; }
+
+.hero-visual {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 550px; height: 550px;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(calc(-50% - 20px)) rotate(3deg); }
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--gold-1), var(--gold-3), transparent, var(--gold-1));
+  opacity: 0.15;
+  animation: spin 20s linear infinite;
+}
+.hero-orb-1 { width: 100%; height: 100%; top: 0; left: 0; }
+.hero-orb-2 { width: 70%; height: 70%; top: 15%; left: 15%; animation-duration: 12s; animation-direction: reverse; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.hero-orb-inner {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; height: 200px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: blur(40px);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION BASE */
+section { padding: 7rem 4rem; }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 1.5rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold-2);
+}
+.section-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.section-title .gold {
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--gray-2);
+  max-width: 540px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* SERVICES */
+#services {
+  background: var(--black-2);
+  position: relative;
+  overflow: hidden;
+}
+#services::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+}
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(212,175,55,0.1);
+  border: 1.5px solid rgba(212,175,55,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.service-card {
+  background: var(--black-3);
+  padding: 2.5rem;
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  group: '';
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
+}
+.service-card:hover { background: var(--black-4); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(242,201,76,0.05));
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, rgba(212,175,55,0.3), rgba(242,201,76,0.1));
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+.service-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--gray-2);
+  line-height: 1.65;
+}
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+}
+.tag {
+  font-size: 0.68rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 100px;
+  color: var(--gold-2);
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: rgba(212,175,55,0.04);
+}
+.service-arrow {
+  position: absolute;
+  bottom: 2rem; right: 2rem;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-2);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.service-card:hover .service-arrow { opacity: 1; transform: translate(3px, -3px); }
+
+/* PROCESS */
+#process {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.process-steps {
+  display: flex;
+  gap: 0;
+  margin-top: 4rem;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+}
+.process-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
+.step-num {
+  width: 64px; height: 64px;
+  background: var(--black-3);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold-2);
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.process-step:hover .step-num {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: var(--black);
+  border-color: var(--gold-2);
+  box-shadow: 0 0 30px rgba(212,175,55,0.4);
+}
+.step-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.step-desc { font-size: 0.83rem; color: var(--gray-2); line-height: 1.55; }
+
+/* ABOUT */
+#about {
+  background: var(--black-2);
+  position: relative;
+  overflow: hidden;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  height: 420px;
+}
+.about-card {
+  position: absolute;
+  background: var(--black-3);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.about-card-main {
+  top: 0; left: 0;
+  width: 280px;
+  animation: fadeUp 1s ease 0.2s both;
+}
+.about-card-2 {
+  bottom: 0; right: 0;
+  width: 240px;
+  animation: fadeUp 1s ease 0.4s both;
+}
+.about-card-3 {
+  top: 40%; left: 30%;
+  width: 200px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.02));
+  border-color: rgba(212,175,55,0.3);
+  animation: fadeUp 1s ease 0.6s both;
+}
+.card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.card-title { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+.card-text { font-size: 0.8rem; color: var(--gray-2); line-height: 1.5; }
+.card-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.why-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.why-item:hover {
+  border-color: rgba(212,175,55,0.2);
+  background: rgba(212,175,55,0.03);
+}
+.why-dot {
+  width: 8px; height: 8px;
+  background: var(--gold-2);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.why-text strong { display: block; font-family: var(--font-head); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
+.why-text span { font-size: 0.82rem; color: var(--gray-2); }
+
+/* PORTFOLIO */
+#portfolio {
+  background: var(--black);
+  overflow: hidden;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.portfolio-card {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+.portfolio-card:hover {
+  border-color: rgba(212,175,55,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(212,175,55,0.1);
+}
+.portfolio-img {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.portfolio-img-bg-1 { background: linear-gradient(135deg, #0A0A1E, #1A1A3E); }
+.portfolio-img-bg-2 { background: linear-gradient(135deg, #0A1A0A, #1A3A1A); }
+.portfolio-img-bg-3 { background: linear-gradient(135deg, #1A0A0A, #3A1A0A); }
+.portfolio-img-bg-4 { background: linear-gradient(135deg, #1A0A1A, #2A0A2A); }
+.portfolio-img-bg-5 { background: linear-gradient(135deg, #0A1A1A, #0A2A2A); }
+.portfolio-img-bg-6 { background: linear-gradient(135deg, #1A1A0A, #2A2A0A); }
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.portfolio-card:hover .portfolio-overlay { opacity: 1; }
+.overlay-btn {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: var(--black);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+.portfolio-body { padding: 1.5rem; }
+.portfolio-cat {
+  font-size: 0.68rem;
+  color: var(--gold-2);
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.portfolio-name { font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
+.portfolio-result { font-size: 0.8rem; color: var(--gray-2); }
+.portfolio-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--gold-3);
+  font-family: var(--font-head);
+  font-weight: 600;
+}
+
+/* TESTIMONIALS */
+#testimonials { background: var(--black-2); position: relative; }
+#testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.testimonial-card {
+  background: var(--black-3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: rgba(212,175,55,0.08);
+  line-height: 1;
+}
+.testimonial-card:hover {
+  border-color: rgba(212,175,55,0.2);
+  background: var(--black-4);
+  transform: translateY(-2px);
+}
+.stars { color: var(--gold-2); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.testimonial-text { font-size: 0.9rem; color: var(--gray-1); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--black);
+  flex-shrink: 0;
+}
+.author-name { font-family: var(--font-head); font-weight: 700; font-size: 0.9rem; }
+.author-role { font-size: 0.75rem; color: var(--gray-2); }
+
+/* BLOG */
+#blog { background: var(--black); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.blog-card {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.blog-card:hover {
+  border-color: rgba(212,175,55,0.25);
+  transform: translateY(-3px);
+}
+.blog-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.blog-img-1 { background: linear-gradient(135deg, #0D0D1F, #1A0D2E); }
+.blog-img-2 { background: linear-gradient(135deg, #0D1A0D, #0D2E0D); }
+.blog-img-3 { background: linear-gradient(135deg, #1A0D0D, #2E1A0D); }
+.blog-body { padding: 1.5rem; }
+.blog-cat { font-size: 0.68rem; color: var(--gold-2); font-family: var(--font-head); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.blog-title { font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+.blog-excerpt { font-size: 0.82rem; color: var(--gray-2); line-height: 1.6; margin-bottom: 1rem; }
+.blog-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--gray-3); }
+.read-more { color: var(--gold-2); font-family: var(--font-head); font-weight: 600; display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s ease; }
+.blog-card:hover .read-more { gap: 0.6rem; }
+
+/* CTA BAND */
+#cta-band {
+  background: linear-gradient(135deg, #0D0D00 0%, #1A1500 50%, #0D0D00 100%);
+  border-top: 1px solid rgba(212,175,55,0.15);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  text-align: center;
+  padding: 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+#cta-band::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(212,175,55,0.08) 0%, transparent 70%);
+}
+#cta-band .section-title { font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; }
+#cta-band .section-desc { text-align: center; margin: 1.5rem auto 3rem; font-size: 1.1rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* CONTACT */
+#contact {
+  background: var(--black-2);
+  position: relative;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 2rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+.contact-icon {
+  width: 46px; height: 46px;
+  background: rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.contact-label { font-size: 0.75rem; color: var(--gray-2); font-family: var(--font-head); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.contact-val { font-size: 0.95rem; color: var(--gray-1); }
+.contact-form {
+  background: var(--black-3);
+  border: 1px solid rgba(212,175,55,0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.78rem; font-family: var(--font-head); font-weight: 600; color: var(--gray-2); letter-spacing: 0.08em; text-transform: uppercase; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--black-4);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+  outline: none;
+  resize: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold-1); }
+.form-group select option { background: var(--black-4); }
+.form-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: var(--black);
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.form-submit:hover { box-shadow: 0 8px 24px rgba(212,175,55,0.35); transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(212,175,55,0.1);
+  padding: 4rem 4rem 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+.footer-tagline { font-size: 0.88rem; color: var(--gray-2); line-height: 1.6; max-width: 280px; }
+.footer-socials { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+.social-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--gray-2);
+  transition: all 0.2s ease;
+}
+.social-btn:hover { border-color: var(--gold-1); color: var(--gold-2); background: rgba(212,175,55,0.05); }
+.footer-col h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 1.25rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-col ul a { text-decoration: none; color: var(--gray-2); font-size: 0.88rem; transition: color 0.2s ease; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.8rem;
+  color: var(--gray-3);
+}
+.footer-bottom a { color: var(--gold-2); text-decoration: none; }
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  z-index: 200;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE NAV */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 1.2rem 2rem; }
+  .nav-links { gap: 1.5rem; }
+  section { padding: 5rem 2rem; }
+  #hero { padding: 7rem 2rem 4rem; }
+  .hero-visual { display: none; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual { height: 280px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .process-steps { flex-direction: column; gap: 2rem; }
+  .process-steps::before { display: none; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-s">S</div>
+    <div class="logo-text">
+      <span>Swapnolipi</span>
+      <span>Technologies Pvt. Ltd.</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🚀 India's Premier Tech & Digital Partner</div>
+    <h1 class="hero-title">
+      TRANSFORMING<br>
+      <span class="gold">IDEAS INTO</span><br>
+      SCALABLE DIGITAL<br>
+      SOLUTIONS
+    </h1>
+    <p class="hero-sub">
+      Web, App, CRM & Digital Marketing — <strong>All Under One Roof.</strong><br>
+      We help Startups, SMEs & Enterprises build smarter and grow faster.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">✦ Get a Free Consultation</a>
+      <a href="#portfolio" class="btn-outline">↗ View Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">200+</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">98%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">Expert Team</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb-inner"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Complete Digital<br><span class="gold">Solutions Suite</span></h2>
+    </div>
+    <p class="section-desc">Every service crafted with precision, powered by data, and built to deliver measurable ROI for your business.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <div class="service-title">Web Development</div>
+      <div class="service-desc">High-performance, SEO-optimized websites and web applications built with cutting-edge technologies that convert visitors into customers.</div>
+      <div class="service-tags"><span class="tag">React / Next.js</span><span class="tag">Node.js</span><span class="tag">Laravel</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title">App Development</div>
+      <div class="service-desc">Native and cross-platform mobile apps with stunning UX that keep users engaged and drive business growth on iOS & Android.</div>
+      <div class="service-tags"><span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">iOS/Android</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <div class="service-title">Software Solutions</div>
+      <div class="service-desc">Enterprise-grade custom software that automates workflows, reduces operational costs and scales with your business needs.</div>
+      <div class="service-tags"><span class="tag">SaaS</span><span class="tag">ERP</span><span class="tag">API Integration</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <div class="service-title">Custom CRM</div>
+      <div class="service-desc">Tailored CRM systems that centralize customer data, automate pipelines, and give your sales team an unfair competitive edge.</div>
+      <div class="service-tags"><span class="tag">Lead Management</span><span class="tag">Automation</span><span class="tag">Analytics</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📢</div>
+      <div class="service-title">Digital Marketing</div>
+      <div class="service-desc">ROI-focused digital marketing strategies — SEO, Social Media, Google Ads, and content that drives qualified leads at scale.</div>
+      <div class="service-tags"><span class="tag">SEO</span><span class="tag">Google Ads</span><span class="tag">SMM</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Lead Generation</div>
+      <div class="service-desc">Data-driven lead generation funnels combining paid ads, landing page optimization, and nurture sequences that fill your pipeline.</div>
+      <div class="service-tags"><span class="tag">Funnels</span><span class="tag">PPC</span><span class="tag">Conversion CRO</span></div>
+      <div class="service-arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center; margin-bottom: 1rem;">
+    <div class="section-label" style="justify-content:center;">Our Methodology</div>
+    <h2 class="section-title" style="text-align:center;">The <span class="gold">Swapnolipi</span> Process</h2>
+    <p class="section-desc" style="margin: 1rem auto 0; text-align:center;">A proven 5-step framework that takes your idea from concept to market-leading product.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Discover</div>
+      <div class="step-desc">Deep-dive into your business goals, audience, and competitive landscape.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Plan</div>
+      <div class="step-desc">Strategic roadmap, wireframes & technology selection tailored to your vision.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Build</div>
+      <div class="step-desc">Agile development with milestone-based delivery and transparent communication.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Launch</div>
+      <div class="step-desc">Thorough QA, performance testing, and a seamless go-live experience.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div class="step-title">Scale</div>
+      <div class="step-desc">Ongoing support, analytics, and growth marketing to maximize your ROI.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card about-card-main">
+        <div class="card-icon">🏆</div>
+        <div class="card-title">Award-Winning Team</div>
+        <div class="card-text">50+ experts in design, development, and digital growth united by one purpose.</div>
+      </div>
+      <div class="about-card about-card-3">
+        <div class="card-value">₹50Cr+</div>
+        <div class="card-title">Revenue Generated</div>
+        <div class="card-text">For our clients through digital strategies</div>
+      </div>
+      <div class="about-card about-card-2">
+        <div class="card-icon">🌍</div>
+        <div class="card-title">Pan-India Presence</div>
+        <div class="card-text">Serving clients across 15+ cities with global-standard delivery.</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Your Growth Partner in<br><span class="gold">Tech & Digital</span></h2>
+      <p class="section-desc" style="margin-top:1rem;">Swapnolipi Technologies was founded with a singular vision — to be the complete digital backbone for businesses that dare to think big. We combine deep technical expertise with sharp digital marketing acumen to deliver solutions that don't just look great, but perform exceptionally.</p>
+      <div class="why-list reveal">
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div class="why-text">
+            <strong>ROI-Focused Digital Marketing</strong>
+            <span>Every campaign is built around measurable business outcomes, not vanity metrics.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div class="why-text">
+            <strong>Data-Driven Strategies</strong>
+            <span>We make decisions backed by real analytics, A/B testing, and market intelligence.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div class="why-text">
+            <strong>Custom Solutions, Always</strong>
+            <span>No cookie-cutter templates. Every project is architected specifically for your needs.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div class="why-text">
+            <strong>Full-Stack Ownership</strong>
+            <span>From strategy to execution, we own every aspect of your digital growth journey.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:2rem; margin-bottom:0;">
+    <div>
+      <div class="section-label">Case Studies</div>
+      <h2 class="section-title">Results That<br><span class="gold">Speak Loudly</span></h2>
+    </div>
+    <a href="#contact" class="btn-outline">View All Projects ↗</a>
+  </div>
+  <div class="portfolio-grid reveal">
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-1">🛒</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">E-Commerce + SEO</div>
+        <div class="portfolio-name">RetailMax India</div>
+        <div class="portfolio-result">Built full-stack e-commerce platform with integrated CRM and automated marketing funnels.</div>
+        <div class="portfolio-metric">📈 340% increase in organic traffic</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-2">📊</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">Custom CRM</div>
+        <div class="portfolio-name">FinEdge Solutions</div>
+        <div class="portfolio-result">Custom CRM with automated lead scoring, pipeline management, and real-time dashboards.</div>
+        <div class="portfolio-metric">🎯 60% reduction in sales cycle time</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-3">📱</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">Mobile App</div>
+        <div class="portfolio-name">HealthFirst App</div>
+        <div class="portfolio-result">Cross-platform healthcare app with telemedicine, appointment booking, and health tracking.</div>
+        <div class="portfolio-metric">⭐ 4.8 app store rating, 50K+ installs</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-4">🎯</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">Digital Marketing</div>
+        <div class="portfolio-name">GrowthCo Startups</div>
+        <div class="portfolio-result">360° digital marketing campaign spanning SEO, Google Ads, and social media growth.</div>
+        <div class="portfolio-metric">💰 8x ROAS on paid campaigns</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-5">🏗️</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">Web Development</div>
+        <div class="portfolio-name">BuildWell Infra</div>
+        <div class="portfolio-result">Enterprise website with project portfolio, lead capture, and multi-location management system.</div>
+        <div class="portfolio-metric">🚀 250% increase in qualified leads</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img portfolio-img-bg-6">🎓</div>
+      <div class="portfolio-overlay"><a href="#contact" class="overlay-btn">View Case Study</a></div>
+      <div class="portfolio-body">
+        <div class="portfolio-cat">SaaS Platform</div>
+        <div class="portfolio-name">EduSpark LMS</div>
+        <div class="portfolio-result">Full learning management system with video streaming, assessments, and payment gateway integration.</div>
+        <div class="portfolio-metric">👥 10,000+ active learners in 3 months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Client Stories</div>
+    <h2 class="section-title" style="text-align:center;">What Our <span class="gold">Clients Say</span></h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">Swapnolipi transformed our digital presence completely. Their CRM solution alone saved us 15 hours of manual work every week. Truly a world-class team.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          <div class="author-name">Rahul Sharma</div>
+          <div class="author-role">CEO, FinEdge Solutions</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">Our Google Ads ROAS went from 2x to 8x within 90 days of working with Swapnolipi. Their data-driven approach is what sets them apart from every other agency.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">P</div>
+        <div>
+          <div class="author-name">Priya Menon</div>
+          <div class="author-role">Founder, GrowthCo Startups</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">The HealthFirst app exceeded all expectations. The team understood our complex requirements and delivered a product our users absolutely love. Highly recommended!</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Dr. Amit Patel</div>
+          <div class="author-role">Co-founder, HealthFirst</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">From ideation to launch in just 8 weeks — their agile process is phenomenal. Our e-commerce revenue doubled in the first quarter post-launch.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sonal Gupta</div>
+          <div class="author-role">Director, RetailMax India</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">Best investment our company has made in the last 3 years. SEO results were visible within 45 days and organic traffic has been growing every month since.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-name">Kavitha Nair</div>
+          <div class="author-role">Marketing Head, BuildWell Infra</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">Swapnolipi isn't just a vendor — they're a true growth partner. Their strategic thinking and technical execution are both top-notch. We've signed up for a 3-year contract!</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">V</div>
+        <div>
+          <div class="author-name">Vikram Joshi</div>
+          <div class="author-role">CTO, EduSpark</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:2rem; margin-bottom:0;">
+    <div>
+      <div class="section-label">Knowledge Hub</div>
+      <h2 class="section-title">Insights &<br><span class="gold">Perspectives</span></h2>
+    </div>
+    <a href="#" class="btn-outline">All Articles ↗</a>
+  </div>
+  <div class="blog-grid reveal">
+    <div class="blog-card">
+      <div class="blog-img blog-img-1">🧩</div>
+      <div class="blog-body">
+        <div class="blog-cat">CRM & Automation</div>
+        <div class="blog-title">Why Your Business Needs a Custom CRM in 2025</div>
+        <div class="blog-excerpt">Off-the-shelf CRMs force you to adapt your process to their limitations. Here's why a custom CRM is a strategic advantage.</div>
+        <div class="blog-meta">
+          <span>8 min read</span>
+          <a href="#" class="read-more">Read →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-2">📈</div>
+      <div class="blog-body">
+        <div class="blog-cat">Digital Marketing</div>
+        <div class="blog-title">Top Digital Marketing Trends Reshaping Indian Businesses</div>
+        <div class="blog-excerpt">AI-powered advertising, short-form video, and regional language SEO are transforming how brands connect with customers in India.</div>
+        <div class="blog-meta">
+          <span>6 min read</span>
+          <a href="#" class="read-more">Read →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-3">🔍</div>
+      <div class="blog-body">
+        <div class="blog-cat">SEO Strategy</div>
+        <div class="blog-title">How SEO Boosts Business Growth: A Data-Backed Guide</div>
+        <div class="blog-excerpt">Businesses that invest in SEO see compounding returns over time. Here's a deep-dive into the strategies that actually move the needle.</div>
+        <div class="blog-meta">
+          <span>10 min read</span>
+          <a href="#" class="read-more">Read →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <div style="position:relative; z-index:1;">
+    <div class="section-label" style="justify-content:center;">Ready to Grow?</div>
+    <h2 class="section-title">Build Smart.<br><span class="gold">Market Smarter.</span></h2>
+    <p class="section-desc">Let's discuss how Swapnolipi Technologies can become your unfair digital advantage. Free consultation, no commitment.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-primary">✦ Start Your Project Today</a>
+      <a href="https://wa.me/91XXXXXXXXXX" class="btn-outline">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's <span class="gold">Grow Together</span></h2>
+  <div class="contact-grid" style="margin-top:3rem;">
+    <div class="contact-info reveal">
+      <p class="section-desc">Have a project in mind? Let's talk about how we can help transform your business with the right technology and marketing strategy.</p>
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:1rem;">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Office</div>
+            <div class="contact-val">Swapnolipi Technologies Pvt. Ltd.<br>India</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">hello@swapnolipitech.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-val">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <div class="contact-label">Working Hours</div>
+            <div class="contact-val">Mon – Sat: 9:00 AM – 7:00 PM IST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3 style="font-family:var(--font-head); font-weight:800; font-size:1.3rem; margin-bottom:2rem;">Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="john@company.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" placeholder="Your Company">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Service Interested In *</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>Web Development</option>
+          <option>App Development</option>
+          <option>Software Solutions</option>
+          <option>Custom CRM</option>
+          <option>Digital Marketing</option>
+          <option>Lead Generation</option>
+          <option>Complete Digital Package</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell Us About Your Project *</label>
+        <textarea rows="4" placeholder="Describe your project goals, timeline, and any specific requirements..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">
+        Send Message ✦
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo" style="display:inline-flex;">
+        <div class="logo-s">S</div>
+        <div class="logo-text">
+          <span>Swapnolipi</span>
+          <span>Technologies Pvt. Ltd.</span>
+        </div>
+      </a>
+      <p class="footer-tagline">Empowering Businesses with Technology & Digital Marketing. Your complete digital growth partner.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="LinkedIn">in</a>
+        <a href="#" class="social-btn" title="Twitter">𝕏</a>
+        <a href="#" class="social-btn" title="Instagram">◎</a>
+        <a href="#" class="social-btn" title="Facebook">f</a>
+        <a href="#" class="social-btn" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Web Development</a></li>
+        <li><a href="#services">App Development</a></li>
+        <li><a href="#services">Custom CRM</a></li>
+        <li><a href="#services">Digital Marketing</a></li>
+        <li><a href="#services">Lead Generation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#portfolio">Case Studies</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#blog">Insights / Blog</a></li>
+        <li><a href="#contact">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@swapnolipitech.com">hello@swapnolipitech.com</a></li>
+        <li><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></li>
+        <li><a href="https://wa.me/91XXXXXXXXXX">WhatsApp Us</a></li>
+        <li><a href="#contact">Free Consultation</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Swapnolipi Technologies Pvt. Ltd. All rights reserved.</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Sitemap</a></span>
+  </div>
+</footer>
+
+<script>
+// Custom Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX - 6 + 'px';
+  cursor.style.top = mouseY - 6 + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX - 18) * 0.12;
+  ringY += (mouseY - ringY - 18) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button, .service-card, .portfolio-card, .blog-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; });
+});
+
+// Scroll Reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Navbar Scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 50) nav.style.padding = '1rem 4rem';
+  else nav.style.padding = '1.5rem 4rem';
+});
+
+// Mobile menu
+function toggleMenu() {
+  alert('Mobile navigation menu — connect your preferred mobile nav implementation here!');
+}
+
+// Form submit
+function handleSubmit() {
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '✓ Message Sent! We\'ll reach out within 24 hours.';
+  btn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+  setTimeout(() => {
+    btn.textContent = 'Send Message ✦';
+    btn.style.background = '';
+  }, 4000);
+}
+
+// Smooth scroll for anchors
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
